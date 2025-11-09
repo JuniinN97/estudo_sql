@@ -71,3 +71,17 @@ SELECT
     ) AS taxa_ocupacao_percent
 FROM Salas s
 ORDER BY taxa_ocupacao_percent DESC;
+
+-- Relatório completo unindo alunos, turmas, salas e professores
+SELECT 
+    a.nome AS aluno,
+    a.matricula,
+    t.nome_turma,
+    s.nome_sala,
+    s.capacidade,
+    p.nome AS professor
+FROM Alunos a
+LEFT JOIN Turmas t ON a.id_turma = t.id_turma
+LEFT JOIN Salas s ON t.id_sala = s.id_sala
+LEFT JOIN Professores p ON s.id_sala = p.id_sala
+ORDER BY t.nome_turma, a.nome;
