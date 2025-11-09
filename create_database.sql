@@ -1,0 +1,2 @@
+CREATE DATABASE Escola;
+USE Escola;
